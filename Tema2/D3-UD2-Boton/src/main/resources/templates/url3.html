@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Idiomas</title>
+</head>
+<body>
+<h1>Selecciona los idiomas que hablas</h1>
+
+<ul th:if="${errores != null}">
+    <li th:each="error : ${errores}" th:text="${error}"></li>
+</ul>
+
+<form action="/url4" method="get">
+    <input type="hidden" name="nombre" th:value="${nombre}" />
+    <input type="hidden" name="opcion" th:value="${opcion}" />
+
+    <input type="checkbox" name="opciones" value="Español" th:checked="${opciones != null && opciones.contains('Español')}" /> Español<br>
+    <input type="checkbox" name="opciones" value="Inglés" th:checked="${opciones != null && opciones.contains('Inglés')}" /> Inglés<br>
+    <input type="checkbox" name="opciones" value="Alemán" th:checked="${opciones != null && opciones.contains('Alemán')}" /> Alemán<br>
+    <input type="checkbox" name="opciones" value="Francés" th:checked="${opciones != null && opciones.contains('Francés')}" /> Francés<br>
+    <input type="checkbox" name="opciones" value="Otro" th:checked="${opciones != null && opciones.contains('Otro')}" /> Otro<br>
+
+    <br><br>
+    <button type="submit">Siguiente</button>
+</form>
+
+<!-- Botón Atrás -->
+<form action="/url2" method="get">
+    <input type="hidden" name="nombre" th:value="${nombre}" />
+    <button type="submit">Atrás</button>
+</form>
+</body>
+</html>

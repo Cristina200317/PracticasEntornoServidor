@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nombre</title>
+</head>
+<body>
+    <h1>Introduce un nombre</h1>
+
+    <ul th:if="${errores != null}">
+        <li th:each="error : ${errores}" th:text="${error}"></li>
+    </ul>
+
+    <form action="/url2" method="get">
+        <label>Nombre: </label>
+        <input type="text" name="nombre" th:value="${nombre}" />
+        <br><br>
+        <button type="submit">Siguiente</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Género</title>
+</head>
+<body>
+    <h1>Selecciona un género</h1>
+
+    <ul th:if="${errores != null}">
+        <li th:each="error : ${errores}" th:text="${error}"></li>
+    </ul>
+
+    <form action="/url3" method="get">
+        <input type="hidden" name="nombre" th:value="${nombre}" />
+
+        <input type="radio" name="opcion" value="Masculino" /> Masculino<br>
+        <input type="radio" name="opcion" value="Femenino" /> Femenino<br>
+        <input type="radio" name="opcion" value="Prefiero no decirlo" /> Prefiero no decirlo<br>
+
+        <br>
+        <button type="submit">Siguiente</button>
+    </form>
+</body>
+</html>

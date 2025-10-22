@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Resumen</title>
+</head>
+<body>
+<h1>Resumen de tus datos</h1>
+
+<ul>
+    <li th:each="dato : ${datos}" th:text="${dato}"></li>
+</ul>
+
+<form action="/url3" method="get">
+    <input type="hidden" name="nombre" th:value="${nombre}" />
+    <input type="hidden" name="opcion" th:value="${opcion}" />
+    <input type="hidden" th:each="idioma : ${opciones}" name="opciones" th:value="${idioma}" />
+    <input type="hidden" name="rangoEdad" th:value="${rangoEdad}" />
+    <button type="submit">Atrás</button>
+</form>
+</body>
+</html>

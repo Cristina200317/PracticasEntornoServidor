@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Idiomas</title>
+</head>
+<body>
+    <h1>Selecciona los idiomas que hablas</h1>
+
+    <ul th:if="${errores != null}">
+        <li th:each="error : ${errores}" th:text="${error}"></li>
+    </ul>
+
+    <form action="/url4" method="get">
+        <input type="hidden" name="nombre" th:value="${nombre}" />
+        <input type="hidden" name="opcion" th:value="${opcion}" />
+
+        <input type="checkbox" name="opciones" value="Español" /> Español<br>
+        <input type="checkbox" name="opciones" value="Inglés" /> Inglés<br>
+        <input type="checkbox" name="opciones" value="Alemán" /> Alemán<br>
+        <input type="checkbox" name="opciones" value="Francés" /> Francés<br>
+        <input type="checkbox" name="opciones" value="Otro" /> Otro<br>
+
+        <br>
+        <button type="submit">Siguiente</button>
+    </form>
+</body>
+</html>

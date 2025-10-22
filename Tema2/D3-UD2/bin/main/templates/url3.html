@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Selecciona varias opciones</title>
+</head>
+
+<body>
+	<h1>Selecciona los idiomas que hablas</h1>
+	<form action="/url4" method="get">
+		<input type="hidden" name="nombre" th:value="${nombre}" />
+		<input type="hidden" name="opcion" th:value="${opcion}" />
+
+		<input type="checkbox" id="multi1" name="opciones" value="Español">
+		<label for="multi1">Español</label><br>
+
+		<input type="checkbox" id="multi2" name="opciones" value="Inglés">
+		<label for="multi2">Inglés</label><br>
+
+		<input type="checkbox" id="multi3" name="opciones" value="Alemán">
+		<label for="multi3">Alemán</label><br>
+
+		<input type="checkbox" id="multi4" name="opciones" value="Francés">
+		<label for="multi4">Francés</label><br>
+
+		<input type="checkbox" id="multi5" name="opciones" value="Otro">
+		<label for="multi5">Otro</label><br>
+
+		<button type="submit">Siguiente</button>
+	</form>
+</body>
+
+</html>

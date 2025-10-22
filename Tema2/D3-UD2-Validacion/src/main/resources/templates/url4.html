@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Edad</title>
+</head>
+
+<body>
+	<h1>Selecciona tu rango de edad</h1>
+
+	<ul th:if="${errores != null}">
+		<li th:each="error : ${errores}" th:text="${error}"></li>
+	</ul>
+
+	<form action="/url5" method="get">
+		<input type="hidden" name="nombre" th:value="${nombre}" />
+		<input type="hidden" name="opcion" th:value="${opcion}" />
+		<input type="hidden" th:each="idioma : ${opciones}" name="opciones" th:value="${idioma}" />
+
+		<select name="rangoEdad">
+			<option value="">Selecciona el rango de edad</option>
+			<option value="Menos de 18">Menos de 18</option>
+			<option value="18-25">18-25</option>
+			<option value="26-35">26-35</option>
+			<option value="36-50">36-50</option>
+			<option value="Más de 50">Más de 50</option>
+		</select>
+		<br><br>
+		<button type="submit">Enviar</button>
+	</form>
+</body>
+
+</html>

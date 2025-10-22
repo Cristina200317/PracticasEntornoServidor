@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rango de edad</title>
+</head>
+<body>
+<h1>Selecciona tu rango de edad</h1>
+
+<ul th:if="${errores != null}">
+    <li th:each="error : ${errores}" th:text="${error}"></li>
+</ul>
+
+<form action="/url5" method="get">
+    <input type="hidden" name="nombre" th:value="${nombre}" />
+    <input type="hidden" name="opcion" th:value="${opcion}" />
+    <input type="hidden" th:each="idioma : ${opciones}" name="opciones" th:value="${idioma}" />
+
+    Rango de edad:
+    <select name="rangoEdad">
+        <option value="" th:selected="${rangoEdad==null}">Selecciona</option>
+        <option value="0-17" th:selected="${rangoEdad=='0-17'}">0-18</option>
+        <option value="18-30" th:selected="${rangoEdad=='18-30'}">19-30</option>
+        <option value="31-50" th:selected="${rangoEdad=='31-50'}">31-50</option>
+        <option value="51+" th:selected="${rangoEdad=='51+'}">Más de 50</option>
+    </select>
+    <br><br>
+    <button type="submit">Siguiente</button>
+</form>
+
+<!-- Botón Atrás -->
+<form action="/url3" method="get">
+    <input type="hidden" name="nombre" th:value="${nombre}" />
+    <input type="hidden" name="opcion" th:value="${opcion}" />
+    <input type="hidden" th:each="idioma : ${opciones}" name="opciones" th:value="${idioma}" />
+    <button type="submit">Atrás</button>
+</form>
+
+</body>
+</html>
