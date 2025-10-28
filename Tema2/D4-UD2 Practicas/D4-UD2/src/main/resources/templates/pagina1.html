@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Pruebas de Codificación</title>
+</head>
+<body>
+	<h1>Pruebas de Codificación</h1>
+
+	<p>Introduce tu nombre, edad y texto con caracteres especiales:</p>
+
+	<h2>Formulario por POST</h2>
+	<form method="post" th:action="@{/formPost}">
+		<label>Nombre: <input type="text" name="nombre"></label><br>
+		<label>Edad: <input type="number" name="edad"></label><br>
+		<!-- Valor por defecto -->
+		<label>Texto: <input type="text" name="texto"
+			th:value="${caracteres}" size="15"></label><br>
+		<button type="submit">Enviar por POST</button>
+	</form>
+
+	<h2>Formulario por GET</h2>
+	<form method="get" th:action="@{/formGet}">
+		<label>Nombre: <input type="text" name="nombre"></label><br>
+		<label>Edad: <input type="number" name="edad"></label><br>
+		<label>Texto: <input type="text" name="texto"
+			th:value="${caracteres}" size="15"></label><br>
+		<button type="submit">Enviar por GET</button>
+	</form>
+
+	<h2>Enlace codificado</h2>
+	<p>
+		<b>Texto principal:</b> <span th:text="${caracteres}"></span><br>
+		<b>Texto codificado:</b> <span th:text="${caracteresCodificado}"></span><br>
+		<!-- Enlace GET con parámetros codificados -->
+		<a th:href="@{/formGet(nombre='Cris',edad='22',texto=${caracteresCodificado})}">Probar texto codificado</a>
+	</p>
+</body>
+</html>

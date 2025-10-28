@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Resultado de la codificación</title>
+</head>
+<body>
+	<h1>Resultado recibido</h1>
+
+	<p>
+		<b>Método:</b> <span th:text="${metodo}"></span>
+	</p>
+	<p>
+		<b>Nombre:</b> <span th:text="${nombre}"></span>
+	</p>
+	<p>
+		<b>Edad:</b> <span th:text="${edad}"></span>
+	</p>
+	<p>
+		<b>Texto recibido:</b>
+	</p>
+	<span th:text="${texto}"></span>
+
+	<br>
+	<a href="/">Volver al inicio</a>
+</body>
+</html>

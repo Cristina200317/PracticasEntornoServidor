@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Saludo Internacional</title>
+</head>
+<body>
+    <h1 th:text="${mensajeSaludo}">Aquí aparecerá el saludo</h1>
+    <p>
+        <a href="/saludo?lang=es">Español</a> |
+        <a href="/saludo?lang=en">English</a> |
+        <a href="/saludo?lang=fr">Francés</a>
+    </p>
+</body>
+</html>
