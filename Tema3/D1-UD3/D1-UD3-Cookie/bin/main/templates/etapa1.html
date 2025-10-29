@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>MiniQuizz etapa 1</title></head>
+<body>
+<form method="post" th:action="@{/cookies}">
+    <p th:text="${errores}"></p>
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" th:value="${nombre}" />
+    <input type="hidden" name="numEtapa" value="1" />
+    <input type="submit" value="Siguiente" />
+</form>
+</body>
+</html>
