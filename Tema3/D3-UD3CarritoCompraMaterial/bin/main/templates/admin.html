@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Administración de Stock</title>
+</head>
+<body>
+  <h2>Administración de Stock</h2>
+
+  <h3>Stock actual</h3>
+  <ul>
+    <li>Lápices: <span th:text="${stock['lapices']}"></span></li>
+    <li>Cuadernos: <span th:text="${stock['cuadernos']}"></span></li>
+    <li>Bolígrafos: <span th:text="${stock['boligrafos']}"></span></li>
+  </ul>
+
+  <h3>Actualizar stock</h3>
+  <form action="/admin" method="post">
+    <label for="producto">Producto:</label>
+    <select id="producto" name="producto">
+      <option value="lapices">Lápices</option>
+      <option value="cuadernos">Cuadernos</option>
+      <option value="boligrafos">Bolígrafos</option>
+    </select>
+    <br>
+
+    <label for="cantidad">Nueva cantidad: </label>
+    <input type="number" id="cantidad" name="cantidad" min="0">
+    <br>
+
+    <button type="submit">Actualizar</button>
+  </form>
+
+  <p th:text="${mensaje}"></p>
+</body>
+</html>

@@ -1,0 +1,3 @@
+lapices:53
+boligrafos:173
+cuadernos:19

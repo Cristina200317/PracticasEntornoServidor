@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Confirmación de compra</title>
+</head>
+<body>
+	<h2>Compra realizada</h2>
+	<p>
+		Gracias <span th:text="${nombreUsuario}"></span>, tu compra se ha
+		realizado con éxito.
+	</p>
+
+	<h3>Productos comprados:</h3>
+	<ul>
+		<li>Lápices: <span th:text="${lapices}"></span></li>
+		<li>Cuadernos: <span th:text="${cuadernos}"></span></li>
+		<li>Bolígrafos: <span th:text="${boligrafos}"></span></li>
+	</ul>
+
+	<p>
+		Total pagado: <span th:text="${total}"></span> €
+	</p>
+
+	<a href="/carrito">Volver al carrito</a>
+</body>
+</html>

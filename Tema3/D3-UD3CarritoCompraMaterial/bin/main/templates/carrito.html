@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrito de Material Escolar</title>
+</head>
+<body>
+  <h2>Carrito de Material Escolar</h2>
+  <p>
+    Bienvenido, <span th:text="${nombreUsuario}"></span>!
+  </p>
+
+  <!-- Formulario para actualizar el carrito -->
+  <form action="/carrito" method="post">
+    <label for="lapices">Lápices (stock provisional: 
+      <span th:text="${stock['lapices']}"></span>):</label>
+    <input type="number" id="lapices" name="lapices" th:value="${lapices}" min="0">
+    <br>
+
+    <label for="cuadernos">Cuadernos (stock provisional: 
+      <span th:text="${stock['cuadernos']}"></span>):</label>
+    <input type="number" id="cuadernos" name="cuadernos" th:value="${cuadernos}" min="0">
+    <br>
+
+    <label for="boligrafos">Bolígrafos (stock provisional: 
+      <span th:text="${stock['boligrafos']}"></span>):</label>
+    <input type="number" id="boligrafos" name="boligrafos" th:value="${boligrafos}" min="0">
+    <br>
+
+    <button type="submit">Actualizar carrito</button>
+  </form>
+
+  <!-- Botón para finalizar la compra -->
+	<form action="/finalizar" method="post">
+		<input type="number" name="lapices" th:value="${lapices}" hidden>
+		<input type="number" name="cuadernos" th:value="${cuadernos}" hidden>
+		<input type="number" name="boligrafos" th:value="${boligrafos}" hidden>
+		<button type="submit">Finalizar compra</button>
+	</form>
+
+	<!-- Estado del carrito -->
+  <h3>Estado del carrito:</h3>
+  <ul>
+    <li>Lápices: <span th:text="${lapices}"></span></li>
+    <li>Cuadernos: <span th:text="${cuadernos}"></span></li>
+    <li>Bolígrafos: <span th:text="${boligrafos}"></span></li>
+  </ul>
+  <p>Total de la compra: <span th:text="${total}"></span> €</p>
+
+  <!-- Stock actual -->
+  <h3>Stock actual:</h3>
+  <ul>
+    <li>Lápices disponibles: <span th:text="${stock['lapices']}"></span></li>
+    <li>Cuadernos disponibles: <span th:text="${stock['cuadernos']}"></span></li>
+    <li>Bolígrafos disponibles: <span th:text="${stock['boligrafos']}"></span></li>
+  </ul>
+
+  <!-- Mensaje de confirmación -->
+  <p th:text="${mensaje}"></p>
+</body>
+</html>
