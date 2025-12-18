@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Informe de Partidas</title>
+</head>
+<body>
+	<h1>Informe de Partidas</h1>
+
+	<form th:action="@{/informe/filtrar}" method="get">
+		<label for="valor">Mostrar partidas con puntuación mayor que: </label>
+		<input type="number" id="valor" name="valor" min="0" required>
+		<button type="submit">Filtrar</button>
+		<a th:href="@{/informe}">Ver todas</a>
+	</form>
+
+	<!-- Partidas -->
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Puntuación</th>
+				<th>Categoría</th>
+				<th>Fecha</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="partida : ${partidas}">
+				<td th:text="${partida.id}"></td>
+				<td th:text="${partida.persona.nombre}"></td>
+				<td th:text="${partida.puntuacion}"></td>
+				<td th:text="${partida.categoria}"></td>
+				<td th:text="${#dates.format(partida.fecha, 'yyyy-MM-dd HH:mm:ss')}"></td>
+				<td><a th:href="@{/informe/borrar(id=${partida.id})}">Borrar</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
